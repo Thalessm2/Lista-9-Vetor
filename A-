@@ -1,0 +1,12 @@
+class Program//Define uma classe chamada "Program"
+{
+    static void Main()//Define o método principal "Main" que é o ponto de entrada do programa
+    {
+        int[] vetor = { 10, 20, 30, 40, 50 };//Cria um array de inteiros chamado "vetor" e inicializa com os valores 10, 20, 30, 40 e 50
+
+        for (int i = 0; i < vetor.Length; i++)//Inicia um loop "for" que percorre cada elemento do array "vetor"
+        {
+            Console.WriteLine(vetor[i]);//Imprime o valor do elemento atual do array "vetor" no console
+        }
+    }
+}
