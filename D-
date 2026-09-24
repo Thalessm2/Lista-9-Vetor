@@ -1,0 +1,14 @@
+class Program//define uma classe chamada Program
+{
+    static void Main()//define o método Main, que é o ponto de entrada do programa
+    {
+        int[] vetor = { 12, 25, 8, 41, 18 };//define um array de inteiros chamado vetor e inicializa com alguns valores
+        int maior = vetor[0];//define uma variável chamada maior e inicializa com o primeiro valor do array
+        for (int i = 1; i < vetor.Length; i++)//define um loop for que percorre o array a partir do segundo elemento
+        {
+            if (vetor[i] > maior)//verifica se o valor atual do array é maior que o valor armazenado em maior
+                maior = vetor[i];//se for, atualiza o valor de maior com o valor atual do array
+        }
+        Console.WriteLine("Maior valor: " + maior);//imprime o maior valor encontrado no array
+    }
+}
