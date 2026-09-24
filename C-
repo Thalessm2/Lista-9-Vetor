@@ -1,0 +1,14 @@
+class Program//define uma classe chamada Program
+{
+    static void Main()//define o método Main, que é o ponto de entrada do programa
+    {
+        double[] vetor = { 7.5, 8.0, 9.2, 6.8, 10.0 };//define um array de números do tipo double chamado vetor, com 5 elementos
+        double soma = 0;//define uma variável do tipo double chamada soma, inicializada com 0
+        for (int i = 0; i < vetor.Length; i++)//define um loop for que percorre todos os elementos do array vetor
+        {
+            soma += vetor[i];//adiciona o valor do elemento atual do array vetor à variável soma
+        }
+        double media = soma / vetor.Length;//calcula a média dos elementos do array vetor, dividindo a soma pelo número de elementos do array
+        Console.WriteLine("Média = " + media);//imprime a média dos elementos do array vetor no console
+    }
+}
