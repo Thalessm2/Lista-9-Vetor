@@ -1,0 +1,92 @@
+using System;
+using System.Globalization;
+
+// Sistema de controle de estoque simples
+// Armazena nome, quantidade e preço unitário de até 40 mercadorias
+// Menu:
+// 1 - Cadastra mercadorias (um por vez)
+// 2 - Exibe valor total em mercadorias da empresa
+// 3 - Sair
+
+const int MaxMercadorias = 40;
+string[] nomes = new string[MaxMercadorias];
+int[] quantidades = new int[MaxMercadorias];
+decimal[] precos = new decimal[MaxMercadorias];
+int cadastrados = 0;
+
+int ReadInt(string prompt)
+{
+    while (true)
+    {
+        Console.Write(prompt);
+        if (int.TryParse(Console.ReadLine(), NumberStyles.Integer, CultureInfo.CurrentCulture, out var v)) return v;
+        Console.WriteLine("Entrada inválida. Digite um número inteiro.");
+    }
+}
+
+decimal ReadDecimal(string prompt)
+{
+    while (true)
+    {
+        Console.Write(prompt);
+        if (decimal.TryParse(Console.ReadLine(), NumberStyles.Number, CultureInfo.CurrentCulture, out var d)) return d;
+        Console.WriteLine($"Entrada inválida. Digite um número (use '{CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator}' como separador decimal).");
+    }
+}
+
+while (true)
+{
+    Console.WriteLine();
+    Console.WriteLine("MENU");
+    Console.WriteLine("1. Cadastra mercadorias");
+    Console.WriteLine("2. Exibe valor total em mercadorias da empresa");
+    Console.WriteLine("3. Sair");
+    int opc = ReadInt("Opção: ");
+
+    if (opc == 1)
+    {
+        if (cadastrados >= MaxMercadorias)
+        {
+            Console.WriteLine("Capacidade máxima atingida (40 mercadorias).");
+            continue;
+        }
+
+        Console.WriteLine($"Cadastro de mercadoria #{cadastrados + 1}:");
+        Console.Write("Nome: ");
+        string nome = Console.ReadLine() ?? string.Empty;
+        int qtd = ReadInt("Quantidade em estoque: ");
+        decimal preco = ReadDecimal("Preço unitário: ");
+
+        nomes[cadastrados] = nome;
+        quantidades[cadastrados] = qtd;
+        precos[cadastrados] = preco;
+        cadastrados++;
+
+        Console.WriteLine("Mercadoria cadastrada com sucesso.");
+    }
+    else if (opc == 2)
+    {
+        if (cadastrados == 0)
+        {
+            Console.WriteLine("Nenhuma mercadoria cadastrada.");
+            continue;
+        }
+
+        decimal total = 0m;
+        for (int i = 0; i < cadastrados; i++)
+        {
+            total += quantidades[i] * precos[i];
+        }
+
+        Console.WriteLine($"Valor total em mercadorias: {total:C}");
+    }
+    else if (opc == 3)
+    {
+        Console.WriteLine("Saindo...");
+        break;
+    }
+    else
+    {
+        Console.WriteLine("Opção inválida. Digite 1, 2 ou 3.");
+    }
+}
