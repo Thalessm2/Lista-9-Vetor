@@ -1,0 +1,33 @@
+using System;
+
+int tamanho = 5;
+int[] a = new int[tamanho];
+int[] b = new int[tamanho];
+int[] soma = new int[tamanho];
+
+Console.WriteLine("Preencha o primeiro vetor (5 inteiros):");
+for (int i = 0; i < tamanho; i++)
+{
+    Console.Write($"A[{i}]: ");
+    a[i] = int.Parse(Console.ReadLine()!);
+}
+
+Console.WriteLine("Preencha o segundo vetor (5 inteiros):");
+for (int i = 0; i < tamanho; i++)
+{
+    Console.Write($"B[{i}]: ");
+    b[i] = int.Parse(Console.ReadLine()!);
+}
+
+// Gera o vetor soma
+for (int i = 0; i < tamanho; i++)
+{
+    soma[i] = a[i] + b[i];
+}
+
+// Imprime o vetor soma
+Console.WriteLine("Vetor soma:");
+for (int i = 0; i < tamanho; i++)
+{
+    Console.WriteLine($"[{i}] {a[i]} + {b[i]} = {soma[i]}");
+}
