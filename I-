@@ -1,0 +1,15 @@
+using System;
+const int quantidade = 10;
+string[] nomes = new string[quantidade];
+// Lê 10 nomes do usuário
+for (int i = 0; i < quantidade; i++)
+{
+    Console.Write($"Nome[{i + 1}]: ");
+    nomes[i] = Console.ReadLine() ?? string.Empty;
+}
+// Imprime a listagem de nomes
+Console.WriteLine("\nListagem de nomes:");
+for (int i = 0; i < quantidade; i++)
+{
+    Console.WriteLine($"{i + 1}. {nomes[i]}");
+}
