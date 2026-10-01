@@ -1,0 +1,22 @@
+using System;
+Console.Write("Quantidade de elementos: "); // solicita ao usuário a quantidade
+int n = int.Parse(Console.ReadLine()!); // converte a entrada para inteiro
+int[] v = new int[n]; // cria um vetor de inteiros com n posições
+// Preenche o vetor com valores informados pelo usuário
+for (int i = 0; i < n; i++)
+{
+    Console.Write($"Elemento[{i}]: ");
+    v[i] = int.Parse(Console.ReadLine()!); // armazena o valor na posição i
+}
+// Inicializa 'menor' com o primeiro elemento do vetor
+int menor = v[0];
+// Percorre o restante do vetor comparando valores para encontrar o menor
+for (int i = 1; i < v.Length; i++)
+{
+    if (v[i] < menor)
+    {
+        menor = v[i]; // atualiza o menor quando encontra um valor menor
+    }
+}
+// Exibe o menor valor encontrado
+Console.WriteLine($"Menor valor: {menor}");
